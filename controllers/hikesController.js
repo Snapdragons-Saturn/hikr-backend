@@ -4,7 +4,7 @@ const Schema = mongoose.Schema
 
 const HikesSchema = new Schema(
     {
-        
+        name: String
     }
 )
 
