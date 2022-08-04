@@ -15,8 +15,8 @@ app.get('/', (req, res) =>{
 	res.redirect('/api/hikes')
 })
 
-const hikeContoller = require('./controllers/HikeController')
-app.use('/api/hikes', hikeContoller)
+const hikeController = require('./controllers/HikeController')
+app.use('/api/hikes', hikeController)
 
 
 //Listener 
