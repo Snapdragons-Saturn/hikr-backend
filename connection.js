@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 // Create a .env file and paste your DATABASE_URL in it to connect your MongoDB Atlas database
 // Remember to restart your server if needed
-const mongoURI = process.env.DATABASE_URL;
+const mongoURI = process.env.DATABASE_URl;
 
 mongoose
 	.connect(mongoURI)
@@ -17,3 +17,4 @@ mongoose
 	});
 
 module.exports = mongoose;
+
