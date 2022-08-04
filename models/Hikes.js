@@ -4,6 +4,15 @@ const Schema = mongoose.Schema
 
 const HikesSchema = new Schema(
     {
+        hikeID: String, //Should be unique for each unique. We may get another unique key regardless from mongo
+        stateAbb: String, //Two-letter abbreviation of state, replaces region - See commentary, still going to make regions
+        datetimeAdd: Number, //Unix Epoch time, will look funny as hell. Number of milliseconds since 1970ish
+        hikeName: String, //Name of hike
+        hikeDesc: String, //Longer string description of hike provided by user
+        hikeDiff: String, //Difficulty selected from very easy to very hard, 5 values
+        hikeLen: Number, //User input number of miles, should be capped at two decimal places
+        hkeTerrain: String, //User input on terrain, probably should be open typing, not choice between given options
+        userID: Number //Included with stretch goals in mind, just a random number between 1-8 for development
         
     }
 )
