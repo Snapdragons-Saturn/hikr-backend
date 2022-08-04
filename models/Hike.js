@@ -2,7 +2,7 @@ const mongoose = require('../connection')
 const Schema = mongoose.Schema
 
 
-const HikesSchema = new Schema(
+const HikeSchema = new Schema(
     {
         hikeID: String, //Should be unique for each unique. We may get another unique key regardless from mongo
         stateAbb: String, //Two-letter abbreviation of state, replaces region - See commentary, still going to make regions
@@ -17,6 +17,6 @@ const HikesSchema = new Schema(
     }
 )
 
-const Hike = mongoose.model("Hikes", HikesSchema)
+const Hike = mongoose.model("Hike", HikeSchema)
 
 module.exports = Hike
