@@ -27,6 +27,20 @@ router.post('/', async (req, res, next) => {
         next(err)
     }
 })
+router.put('/:id', async (req, res, next) => {
+	try {
+		const updatedHike = await Hike.findByIdAndUpdate(req.params.id, req.body, { new: true })
+
+		if (updatedHike) {
+			res.json(updatedHike)
+		} else {
+			res.sendStatus(404)
+		}
+	}
+	catch (err) {
+		next(err)
+	}
+})
 router.delete('/:id', async(req, res, next) => {
     try{
         const deletedHike = await Hike.findByIdAndDelete(req.params.id)

@@ -11,6 +11,7 @@ const HikeSchema = new Schema(
         hikeDesc: String, //Longer string description of hike provided by user
         hikeDiff: String, //Difficulty selected from very easy to very hard, 5 values
         hikeLen: Number, //User input number of miles, should be capped at two decimal places
+        img_url: String,// Provide an image of the hike to be rendered on the front end
         hkeTerrain: String, //User input on terrain, probably should be open typing, not choice between given options
         userID: Number //Included with stretch goals in mind, just a random number between 1-8 for development
         
