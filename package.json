@@ -1,9 +1,13 @@
 {
   "name": "hikr-backend",
   "version": "1.0.0",
+  "engines":{
+    "node":"18.x"
+  },
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
