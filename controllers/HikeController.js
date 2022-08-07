@@ -21,7 +21,7 @@ router.get('/:id', async(req, res, next) =>{
 
 })
 
-router.get('regions/:region', async(req, res, next) =>{
+router.get('/regions/:region', async(req, res, next) =>{
     const region = req.params.region
     let hike = null;
     try{
