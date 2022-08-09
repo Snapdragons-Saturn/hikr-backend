@@ -13,7 +13,14 @@ const HikeSchema = new Schema(
         hikeLen: Number, //User input number of miles, should be capped at two decimal places
         img_url: String,// Provide an image of the hike to be rendered on the front end
         hkeTerrain: String, //User input on terrain, probably should be open typing, not choice between given options
-        userID: Number //Included with stretch goals in mind, just a random number between 1-8 for development
+        // userID: Number //Included with stretch goals in mind, just a random number between 1-8 for development
+
+        //Key notes: This will be an object, mongo should generate a unique id for user, so we should get the "__v" for user
+        userID: { //Imagine from now we should be thinking of login as necessary for C in CRUD
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "User",
+            required: true
+        }
         
     }
 )
