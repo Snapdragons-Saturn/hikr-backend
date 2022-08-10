@@ -1,6 +1,6 @@
 const express = require('express'); //
-const User = require('../models/User'); 
 const router = express.Router();
+const User = require('../models/User')
 
 //only these ~two~ aren't boilerplate for what we've done so far
 const bcrypt = require('bcrypt');
@@ -10,7 +10,7 @@ const { createUserToken } = require('../middleware/auth');
 //We could also just have different pages for different locations, but might be good to subsection signup on signin
 
 //Route to signing up page. Not sure how we want to route this, will need to interface with tom
-router.post('/signin/signup', async (req, res, next) => { //Note my comment above, assuming new user goes to signin then other page
+router.post('/user/signup', async (req, res, next) => { //Note my comment above, assuming new user goes to signin then other page
 	try {
 		const password = await bcrypt.hash(req.body.password, 10); //creating password with specific hash
         //Note! Do not change the second argument to above once we seed. Like really, really. Relates to hashing
@@ -24,7 +24,7 @@ router.post('/signin/signup', async (req, res, next) => { //Note my comment abov
   });
 
 //Sign back in, NOT sign up. See line 9-10 on architecture thoughts
-router.post('/signin', (req, res, next) => {
+router.post('/user/signin', async (req, res, next) => {
 	User.findOne({ email: req.body.email })
 		// Pass the user and the request to createUserToken
 		.then((user) => createUserToken(req, user))
@@ -32,5 +32,20 @@ router.post('/signin', (req, res, next) => {
 		.then((token) => res.json({ token }))
 		.catch(next);
 });
+
+//just a flat get, should not be used, but priv
+router.get('/user', async(req, res, next) =>{
+    try{
+        const users = await User.find({})
+        res.json(users)
+    }catch(err){
+        next(err)
+    }
+})
+
+
+
+
+
 
 module.exports = router; //standard bolerplate
