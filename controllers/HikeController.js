@@ -1,6 +1,8 @@
 const express = require('express')
 const router = express.Router();
 const Hike = require('../models/Hike')
+const { requireToken } = require('../middleware/auth')
+
 
 router.get('/', async(req, res, next) =>{
     try{
@@ -61,7 +63,7 @@ router.get('/regions/:region', async(req, res, next) =>{
 
 
 
-router.post('/', async (req, res, next) => {
+router.post('/', requireToken, async (req, res, next) => {
     try{
         const newHike = await Hike.create(req.body)
         res.status(201).json(newHike)
@@ -71,7 +73,7 @@ router.post('/', async (req, res, next) => {
 })
 
 
-router.put('/:id', async (req, res, next) => {
+router.put('/:id', requireToken, async (req, res, next) => {
 	try {
 		const updatedHike = await Hike.findByIdAndUpdate(req.params.id, req.body, { new: true })
 
@@ -87,7 +89,7 @@ router.put('/:id', async (req, res, next) => {
 })
 
 
-router.delete('/:id', async(req, res, next) => {
+router.delete('/:id', requireToken, async(req, res, next) => {
     try{
         const deletedHike = await Hike.findByIdAndDelete(req.params.id)
         res.json(deletedHike)
