@@ -23,8 +23,8 @@
     "n": "^9.0.0",
     "passport": "^0.6.0",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^6.5.1",
-    "passport": "^0.6.0",
+
+
     "passport-jwt": "^4.0.0"
 
   }
