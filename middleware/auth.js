@@ -6,7 +6,7 @@ const User = require('../models/User'); //dependency for association
 
 // Defines our hashing keyword, this is the "scrambler"
 //Should be kept in process. Very important this is private
-//Note: We have to define this by passing to Heroku, I (gavin) did this for other stuff, not doing it yet but message me if here
+//Note: We have to define this by passing to Heroku, I did this for other stuff, not doing it yet but message me if here
 const secret = process.env.JWT_SECRET;
 
 // Require the specific `strategy` we'll use to authenticate
