@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 
 // Mongo URL and Connection
 const mongoURI = process.env.DATABASE_URL;
+console.log(process.env.DATABASE_URL)
 const db = mongoose.connection;
 
 // Connect to Mongo

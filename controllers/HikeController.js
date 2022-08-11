@@ -73,7 +73,7 @@ router.post('/', requireToken, async (req, res, next) => {
 })
 
 
-router.put('/:id', requireToken, async (req, res, next) => {
+router.put('/:id', async (req, res, next) => {
 	try {
 		const updatedHike = await Hike.findByIdAndUpdate(req.params.id, req.body, { new: true })
 
