@@ -63,7 +63,7 @@ router.get('/regions/:region', async(req, res, next) =>{
 
 
 
-router.post('/', requireToken, async (req, res, next) => {
+router.post('/', async (req, res, next) => {
     try{
         const newHike = await Hike.create(req.body)
         res.status(201).json(newHike)
