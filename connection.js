@@ -3,10 +3,12 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 
 // Mongo URL and Connection
+console.log("here")
 const mongoURI = process.env.DATABASE_URL;
 console.log(process.env.DATABASE_URL)
+console.log("there")
 const db = mongoose.connection;
-
+console.log("asdfasdf")
 // Connect to Mongo
 mongoose.connect(mongoURI);
 
